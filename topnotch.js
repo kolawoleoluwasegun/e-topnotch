@@ -9,8 +9,9 @@ var config = {
 
   firebase.initializeApp(config);
 
-var database = firebase.database();
-var messageRef  = database.ref('UserProfile');//creating a collection
+var database = firebase.firestore();
+database.settings({timestampsInSnapshots : true })
+// var messageRef  = database.ref('UserProfile');//creating a collection
 
 document.getElementById('contactForm').addEventListener('submit', submitForm);
 
@@ -20,7 +21,7 @@ function submitForm(e){
     var event_location = getInputValue('event_location');
     var event_type = getInputValue('event_type');
     var name = getInputValue('name');
-
+    var phone = getInputValue('phone');
      //getting input from a checkbox
     var service = []; 
     var inputElements = document.getElementsByClassName('messageCheckbox');
@@ -41,13 +42,13 @@ function submitForm(e){
 }
 
 function saveMessage(email,event_location,event_type,name,phone,service){
-    var newMessageRef = messageRef.push();
-    newMessageRef.set({
+    // var newMessageRef = messageRef.push();
+    database.collection('User Request').add({
         email:email,
         event_location:event_location,
         event_type:event_type,
         name:name,
-        phone,phone,
+        phone:phone,
         service:service
 
     });
