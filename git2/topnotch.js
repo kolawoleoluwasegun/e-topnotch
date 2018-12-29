@@ -13,29 +13,15 @@ var database = firebase.firestore();
 database.settings({timestampsInSnapshots : true })
 // var messageRef  = database.ref('UserProfile');//creating a collection
 
-function validateForm() {
-    var x = document.forms["myForm"]["email"].value;
-    // var y = document.forms["myForm"]["phone"].value;
-    if (x == "") {
-      alert("Name  and phone numbers required must be filled out");
-      return false;
-    }
+document.getElementById('contactForm').addEventListener('submit', isset, submitForm);
 
-  }
-
-
-
-
-document.getElementById('contactForm').addEventListener('submit', submitForm);
-
-function submitForm(e){ 
+function submitForm(e){
     e.preventDefault();
     var email = getInputValue('email');
     var event_location = getInputValue('event_location');
     var event_type = getInputValue('event_type');
     var name = getInputValue('name');
     var phone = getInputValue('phone');
-    var event_date = getInputValue('event_date');
      //getting input from a checkbox
     var service = []; 
     var inputElements = document.getElementsByClassName('messageCheckbox');
@@ -50,14 +36,12 @@ function submitForm(e){
                 console.log(service[i]);
             }
 
-            console.log(event_date);
-
-        saveMessage(email,event_location,event_type,name,phone,service,event_date);
+        saveMessage(email,event_location,event_type,name,phone,service);
 
     
 }
 
-function saveMessage(email,event_location,event_type,name,phone,service,event_date){
+function saveMessage(email,event_location,event_type,name,phone,service){
     // var newMessageRef = messageRef.push();
     database.collection('User Request').add({
         email:email,
@@ -65,8 +49,7 @@ function saveMessage(email,event_location,event_type,name,phone,service,event_da
         event_type:event_type,
         name:name,
         phone:phone,
-        service:service,
-        event_date: event_date
+        service:service
 
     });
 }

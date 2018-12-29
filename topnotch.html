@@ -7,7 +7,7 @@
         <link rel="stylesheet" type="text/css" href="styles.css" >
     </head>
     <body>
-        <form id="contactForm" action="" method="">
+        <form id="contactForm" action="" method="" name = myForm >
             <table>
                 <tr>
                     <center>
@@ -19,7 +19,7 @@
                                 <label>email</label>:
                             </td>
                             <td>
-                                    <input type="email" name="" id="email">
+                                    <input type="email" name="email" id="email">
                             </td>
                                 
                 </tr>
@@ -39,7 +39,7 @@
                             <label>Event type</label>:
                         </td>
                         <td>
-                                <input type="email" name="email" id="event_type"><br>
+                                <input type="email" name="" id="event_type"><br>
                         </td>
                             
                 </tr>
@@ -48,7 +48,7 @@
                             <label>name</label>:
                         </td>
                         <td>
-                                <input type="text" name="phone" id="name"><br>
+                                <input type="text" name="" id="name"><br>
                         </td>
                             
                 </tr>
@@ -58,7 +58,7 @@
                             <label>phone</label>:
                         </td>
                         <td>
-                                <textarea type="text" name="" id="phone"></textarea>
+                                <textarea type="text" name="phone" id="phone"></textarea>
                         </td>
                             
                 </tr>
@@ -71,10 +71,18 @@
                     </td>
 
                     <td>
-                            <input class="messageCheckbox" type="checkbox" value="3" name="mailId[]">
-                            <input class="messageCheckbox" type="checkbox" value="1" name="mailId[]">
+                            <input class="messageCheckbox" type="checkbox" value="Wedding Cake" name="mailId[]">
+                            <input class="messageCheckbox" type="checkbox" value="Catering" name="mailId[]">
+                            <input class="messageCheckbox" type="checkbox" value="Ushering" name="mailId[]">
                     </td>
                 </tr>
+
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr><input type="date" id="event_date" name="trip-start"
+       value="2018-07-22"
+       min="2018-01-01" max="2018-12-31">
                 <tr>
                     <td></td>
                     <td><button type="submit">submit</button></td>
